@@ -55,6 +55,15 @@ vehiculos.push(new Vehiculo("porsche","fs7",1943,500.89));
 
 //Menu
 let menu = true
+
+function buscarModeloAnno(modelo){
+    modelos = ["","","","","",]
+    for (let i = 0; i < modelos.length; i++) {
+        const element = array[i];
+        
+    }
+}
+
 while(menu){
     console.log("Menu");
     console.log("Opcion 1: insertar Vehiculo");
@@ -66,7 +75,7 @@ while(menu){
         case "1":
             console.log("inserte los datos del vehiculo que va a agregar:");
             let marca = elegirMarca();
-            let modelo =elegirModelo(marca)
+            let modelo =buscarMarca(marca)
             let anno = buscarModeloAnno(modelo)
             let precio = buscarModeloPrecio(modelo)
             vehiculos.push(new Vehiculo(marca,modelo,anno,precio));
@@ -90,47 +99,17 @@ while(menu){
     const marcas =["toyota","audi","ferrari","bmw","porsche",]
     let corret = false;
     let select = "";
-    alert("Introduzca una de las marcas disponibles para agregar")
-    
     while(!corret){
         console.log(marcas);
-        select = prompt("")
+         select = prompt("Introduzca una de las marcas disponibles para agregar:")
         for (let i = 0; i < marcas.length; i++) {
-            if (select.toLowerCase() == marcas[i]) {
+            if (select == marcas[i]) {
                 corret = true;
             }
             
         }
-        if (!corret) {alert("Entrada incorrecta, por favor intentelo de nuevo")}
-        
+
     }
 
     return select;
-}
- function elegirModelo(marca){
-    let modelos = [];
-    console.log(`ha elegido la marca ${marca}`);
-    alert(`ha elegido la marca ${marca}`);
-    
-    
-    if (marca == "audi") {
-        modelos.push("tt","A1","Q2");
-    }else if (marca == "toyota") {
-        
-    }else if (marca == "bmw") {
-        
-    }else if(marca == "ferrary"){
-
-    }else if (marca == "porsche") {
-        
-    }
-
- }
-
- function buscarModeloAnno(modelo){
-    modelos = ["","","","","",]
-    for (let i = 0; i < modelos.length; i++) {
-        const element = array[i];
-        
-    }
 }
