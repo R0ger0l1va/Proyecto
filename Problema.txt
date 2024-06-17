@@ -1,0 +1,82 @@
+18 Tarea: Gestión de Vehículos
+Crea una clase VehiculoBase con propiedades marca y modelo.
+ Crea una clase Vehiculo que herede de VehiculoBase y
+  añada las propiedades año y precio. Implementa un menú para añadir vehículos,
+ buscar vehículos por marca y mostrar todos los vehículos.
+
+
+
+
+
+
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Vehículos</title>
+</head>
+<body>
+    <h1>Gestión de Vehículos</h1>
+
+    <button onclick="añadirVehiculo()">Añadir Vehículo</button>
+    <button onclick="buscarVehiculo()">Buscar Vehículo por Marca</button>
+    <button onclick="mostrarVehiculos()">Mostrar Todos los Vehículos</button>
+
+    <script>
+        // Clase VehiculoBase
+        class VehiculoBase {
+            constructor(marca, modelo) {
+                this.marca = marca;
+                this.modelo = modelo;
+            }
+        }
+
+        // Clase Vehiculo que hereda de VehiculoBase
+        class Vehiculo extends VehiculoBase {
+            constructor(marca, modelo, año, precio) {
+                super(marca, modelo);
+                this.año = año;
+                this.precio = precio;
+            }
+
+            mostrarInfo() {
+                return `${this.marca} ${this.modelo} - Año: ${this.año}, Precio: ${this.precio}`;
+            }
+        }
+
+        // Arreglo para almacenar los vehículos
+        let inventario = [];
+
+        // Función para añadir vehículos
+        function añadirVehiculo() {
+            let marca = prompt('Introduce la marca del vehículo:');
+            let modelo = prompt('Introduce el modelo del vehículo:');
+            let año = prompt('Introduce el año del vehículo:');
+            let precio = prompt('Introduce el precio del vehículo:');
+            let vehiculo = new Vehiculo(marca, modelo, año, precio);
+            inventario.push(vehiculo);
+            alert('Vehículo añadido con éxito.');
+        }
+
+        // Función para buscar vehículos por marca
+        function buscarVehiculo() {
+            let marca = prompt('Introduce la marca para buscar:');
+            let resultados = inventario.filter(v => v.marca.toLowerCase() === marca.toLowerCase());
+            if (resultados.length > 0) {
+                alert('Vehículos encontrados:\n' + resultados.map(v => v.mostrarInfo()).join('\n'));
+            } else {
+                alert('No se encontraron vehículos de esa marca.');
+            }
+        }
+
+        // Función para mostrar todos los vehículos
+        function mostrarVehiculos() {
+            if (inventario.length > 0) {
+                alert('Todos los vehículos:\n' + inventario.map(v => v.mostrarInfo()).join('\n'));
+            } else {
+                alert('No hay vehículos en el inventario.');
+            }
+        }
+    </script>
+</body>
+</html>
