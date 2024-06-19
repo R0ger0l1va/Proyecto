@@ -1,1 +1,1 @@
-Primer Projecto de JavaScript para el aprendizaje de desarrollo web y entrega de tarea
+Primer Projecto de JavaScript para el aprendizaje de desarrollo web y entrega de tarea, tema: Una tienda de vehiculos donde se pueden agregar varios vehiculos dependiendo de las marcas disponibles y poder mostrar todos los vehiculos de la tienda y por marca especifica
