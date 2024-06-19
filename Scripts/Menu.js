@@ -80,6 +80,7 @@ let menu = true
                 break;
                 case "2":
                     buscarVehiculo();
+                    
                     break
                     case "3":
                         console.log("mostrando todos los vehiculos:");
@@ -203,6 +204,7 @@ let menu = true
     let resultados = vehiculos.filter(v => v.marca.toLowerCase() === marca.toLowerCase());
     if (resultados.length > 0) {
         alert('Vehículos encontrados:\n' + resultados.map(v => v.mostrarInfo()).join('\n'));
+        imprimirObjetosEnPagina(resultados)
     } else {
         alert('No se encontraron vehículos de esa marca.');
     
@@ -210,9 +212,21 @@ let menu = true
      }
   function mostrarVehiculos() {
     if (vehiculos.length > 0) {
-        alert('Todos los vehículos:\n' + vehiculos.map(v => v.mostrarInfo()).join('\n'));
+        let mensaje ='Todos los vehículos:\n' + vehiculos.map(v => v.mostrarInfo()).join('\n');
+        imprimirObjetosEnPagina(vehiculos);
     } else {
-        alert('No hay vehículos en el inventario.');
+        imprimirEnPagina("'No hay vehículos en el inventario.'");
     }
 }
+
+function imprimirObjetosEnPagina(objetos) {
+    var consola = document.getElementById('consola');
+    consola.innerHTML = ''; // Limpiar el contenido anterior
+    objetos.forEach(function(objeto) {
+        consola.innerHTML += 'Marca: ' + objeto.marca + ' - Modelo: ' + objeto.modelo + ' - Anno: ' +objeto.anno + ' - Precio: '+objeto.precio + '<br>';
+    });
+}
+
+
+
 

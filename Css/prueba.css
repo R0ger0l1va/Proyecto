@@ -4,31 +4,63 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin: 0;
+    background-color: black;
     padding: 0;
 }
 
- h4, p {
+ #TiendaVehiculos{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+   
+ }
+
+ h4{
     margin: 1;
     white-space: pre-line;
+    color: #40F99B;
+ } 
+ p {
+    margin: 1;
+    white-space: pre-line;
+    color: #B8DBD9;
 
 }
 
 h3{
     margin: 0;
+    color: #52FFEE;
 }
 
 #Container{
-
+    
     width:70%;
     padding: 0;
     text-align: center;
     border: 2px solid crimson;
-    margin:  auto;
+    margin-top: 40px;
+    margin-left: 200px;
 }
 
-#Marcas{
-    background-color: aqua;
+#Container2{
+    width: 70%;
+    margin-top: 40px;
+    margin-bottom: 30%;
+    padding: 0%;
+    border: 2px solid crimson;
+    background-color: #1C0221;
+}
+
+#consola{
+    color: yellow;
+}
+
+
+
+#Marcas {
+    background-color: #1C0221;
     padding: 0.1px;
+    color: #40F99B;
     padding-top: 10px;
 }
 
@@ -37,20 +69,23 @@ h3{
 /* Estilos adicionales para mejorar la apariencia */
 button {
     margin-bottom: 10px;
+    background-color: #2a363b;
+    color: yellow;
 }
 
 h1 {
+    color: #EA9010;
     margin-bottom: 0;
     padding: 10px;
     margin-top: 0;
-    background-color: aquamarine;
+    background-color: #011638;
 }
 
 
 
 /* Estilo para cada modelo individual */
 #ModelosTotal{
-    background-color: cadetblue;
+    background-color: #1C0221;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -58,12 +93,15 @@ h1 {
 #modelos {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Añade espacio entre cada bloque de marca-modelo */
+    gap: 30px; 
+    margin-left: 30px;
+    margin-right: 30px;/* Añade espacio entre cada bloque de marca-modelo */
 }
 
 /* Estilo para cada bloque de marca-modelo */
 .marca-modelo {
     display: flex;
+    background-color: #1C0221;
     flex-direction: column;
     align-items: center;
     margin-top: 0px;
@@ -74,10 +112,11 @@ h1 {
 .marca-modelo p {
     display: flex;
     gap: 10px; 
+    background-color: #1C0221;
     margin: 5px 0;/* Añade espacio entre los modelos */
 }
 
 #Acciones{
-    background-color: rgb(43, 137, 226);
+    background-color: #1C0221;
     white-space: pre-line;
 }
