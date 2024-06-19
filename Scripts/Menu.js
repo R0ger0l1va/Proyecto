@@ -6,7 +6,7 @@ class VehiculoBase{
         this.modelo = modelo;
     }
 }
-export class Vehiculo extends VehiculoBase {
+ class Vehiculo extends VehiculoBase {
     constructor(marca,modelo,anno, precio){
         super(marca,modelo);
         this.anno = anno;
@@ -47,56 +47,77 @@ export class Vehiculo extends VehiculoBase {
 //Datos Inicializados
 let vehiculos = [];
 
-vehiculos.push(new Vehiculo("audi","f67",1956,1000.90));
-vehiculos.push(new Vehiculo("toyota","fs7",1943,500.89));
-vehiculos.push(new Vehiculo("ferrari","fs7",1943,500.89));
-vehiculos.push(new Vehiculo("bmw","fs7",1943,500.89));
-vehiculos.push(new Vehiculo("porsche","fs7",1943,500.89));
+vehiculos.push(new Vehiculo("audi","tt",1956,1888.90));
+vehiculos.push(new Vehiculo("toyota","Supra",1923,1999.50));
+vehiculos.push(new Vehiculo("ferrari","enzo",1913,1500.89));
+vehiculos.push(new Vehiculo("bmw","M5",1963,4500.89));
+vehiculos.push(new Vehiculo("porsche","Gt",1903,500.89));
 
 //Menu
 let menu = true
-while(menu){
+
     console.log("Menu");
     console.log("Opcion 1: insertar Vehiculo");
     console.log("Opcion 2: buscar Vehiculo");
     console.log("Opcion 3: mostrar todos los vehiculos");
+    console.log("Opcion 4: salir");
 
-    let option = prompt("introduzca la opcion deseada:")
-    switch(option){
-        case "1":
-            console.log("inserte los datos del vehiculo que va a agregar:");
-            let marca = elegirMarca();
-            let modelo =elegirModelo(marca)
-            let anno = buscarModeloAnno(modelo)
-            let precio = buscarModeloPrecio(modelo)
-            vehiculos.push(new Vehiculo(marca,modelo,anno,precio));
-            break;
-            case "2":
-                console.log("introduzca la marca del vehiculo que va a buscar:");
-                break
-                case "3":
-                    console.log("mostrando todos los vehiculos:");
+
+    
+    function manejarOpciones(option) {
+        switch(option){
+            case "1":
+                console.log("inserte los datos del vehiculo que va a agregar:");
+                alert("Introduzca una de las marcas disponibles para agregar")
+                let marca = elegirMarca();
+                let modelo =elegirModelo(marca);
+                alert("Introduzca el año de creacion:");
+                let anno = ponerAnno();
+                alert("Introduzca el precio del vehiculo: ");
+                let precio = ponerPrecio();
+                vehiculos.push(new Vehiculo(marca,modelo,anno,precio));
+                alert(`Se añadio un nuevo vehiculo`);
+                break;
+                case "2":
+                    buscarVehiculo();
                     break
-                    default:
-                        console.log("Opcoin no valida, intentalo de nuevo:");
-
-
+                    case "3":
+                        console.log("mostrando todos los vehiculos:");
+                        mostrarVehiculos();
+                        break
+                        case "4":
+                            document.body.innerHTML = ''; // Esto limpiará el contenido de la página
+                            console.log("Saliendo del menú.");
+                            break
+                            default:
+                            console.log("Opcoin no valida, intentalo de nuevo:");
+    
+    
+    
+        }
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('opcion1').addEventListener('click', function() { manejarOpciones("1"); });
+        document.getElementById('opcion2').addEventListener('click', function() { manejarOpciones("2"); });
+        document.getElementById('opcion3').addEventListener('click', function() { manejarOpciones("3"); });
+        document.getElementById('opcion4').addEventListener('click', function() { manejarOpciones("4"); });
+      });
+
     
-}
+
+//Declaracion de Funciones
 
  function elegirMarca(){
-    const marcas =["toyota","audi","ferrari","bmw","porsche",]
+    const marcas =["toyota","Audi","ferrari","bmw","porsche",]
     let corret = false;
     let select = "";
-    alert("Introduzca una de las marcas disponibles para agregar")
-    
+    alert("Inserte una de las marcas disponibles");
     while(!corret){
         console.log(marcas);
         select = prompt("")
         for (let i = 0; i < marcas.length; i++) {
-            if (select.toLowerCase() == marcas[i]) {
+            if (select.toLowerCase() == marcas[i].toLowerCase()) {
                 corret = true;
             }
             
@@ -112,25 +133,86 @@ while(menu){
     console.log(`ha elegido la marca ${marca}`);
     alert(`ha elegido la marca ${marca}`);
     
+    switch (marca) {
+        case "audi":
+            modelos.push("tt","A1","Q2");
+            break;
+            case "ferrari":
+                modelos.push("Enzo","j50","f8 Spider");
+            break;
+            case "toyota":
+                modelos.push("Supra","Corolla","Prius");
+            break;
+            case "bmw":
+                modelos.push("M3","M4","M5");
+            break;
+            case "porsche":
+                modelos.push("911 Carrera","Cayman","911 Gt Spyder");
+            break;
     
-    if (marca == "audi") {
-        modelos.push("tt","A1","Q2");
-    }else if (marca == "toyota") {
-        
-    }else if (marca == "bmw") {
-        
-    }else if(marca == "ferrary"){
-
-    }else if (marca == "porsche") {
-        
+        default:
+            break;
     }
+   
+    alert("De acuerdo a la marca elegida, seleccione el modelo a añadir")
+    let select = "";
+    let correct = false;
+    while(!correct){ 
+        select = prompt("")
+        for (let i = 0; i < modelos.length; i++) {
+            if (select.toLowerCase() == modelos[i].toLowerCase())
+            correct = true
+        }
+        if (!correct) {
+            alert("entrada incorrecta, introduzcala de nuevo");
+        }
+    }
+        
 
+        return select;
+ }
+ function ponerPrecio(){
+    let flag = false;
+    let select = 0;
+    while(!flag){
+        select = prompt("");
+        if(select>0 && select<10000) {flag = true;}
+    }
+    if (!flag) {
+        alert("el precio no puede ser nulo ni muy alto, introduzca el valor de nuevo")
+    }
+    return select;
  }
 
- function buscarModeloAnno(modelo){
-    modelos = ["","","","","",]
-    for (let i = 0; i < modelos.length; i++) {
-        const element = array[i];
-        
+ function ponerAnno(){
+    let flag = false;
+    let select = 0;
+    while(!flag){
+        select = prompt("");
+        if(select>1800 && select<2025) {flag = true;}
+    }
+    if (!flag) {
+        alert("el anno de creacion del auto debe ser entre los 1800 y 2024")
+    }
+    return select;
+ }
+
+ function buscarVehiculo() {
+    alert("Introduzca la marca del vehiculo a buscar")
+    let marca = elegirMarca();
+    let resultados = vehiculos.filter(v => v.marca.toLowerCase() === marca.toLowerCase());
+    if (resultados.length > 0) {
+        alert('Vehículos encontrados:\n' + resultados.map(v => v.mostrarInfo()).join('\n'));
+    } else {
+        alert('No se encontraron vehículos de esa marca.');
+    
+    }
+     }
+  function mostrarVehiculos() {
+    if (vehiculos.length > 0) {
+        alert('Todos los vehículos:\n' + vehiculos.map(v => v.mostrarInfo()).join('\n'));
+    } else {
+        alert('No hay vehículos en el inventario.');
     }
 }
+

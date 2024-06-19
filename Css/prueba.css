@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+ h4, p {
+    margin: 1;
+    white-space: pre-line;
+
+}
+
+h3{
+    margin: 0;
+}
+
+#Container{
+
+    width:70%;
+    padding: 0;
+    text-align: center;
+    border: 2px solid crimson;
+    margin:  auto;
+}
+
+#Marcas{
+    background-color: aqua;
+    padding: 0.1px;
+    padding-top: 10px;
+}
+
+
+
+/* Estilos adicionales para mejorar la apariencia */
+button {
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin-bottom: 0;
+    padding: 10px;
+    margin-top: 0;
+    background-color: aquamarine;
+}
+
+
+
+/* Estilo para cada modelo individual */
+#ModelosTotal{
+    background-color: cadetblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#modelos {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Añade espacio entre cada bloque de marca-modelo */
+}
+
+/* Estilo para cada bloque de marca-modelo */
+.marca-modelo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0px;
+    
+}
+
+/* Estilo para cada modelo individual dentro de su bloque */
+.marca-modelo p {
+    display: flex;
+    gap: 10px; 
+    margin: 5px 0;/* Añade espacio entre los modelos */
+}
+
+#Acciones{
+    background-color: rgb(43, 137, 226);
+    white-space: pre-line;
+}
